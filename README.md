@@ -1,1 +1,2 @@
-# derione-frontend
+The frontend of the DeriOne contract. 
+
