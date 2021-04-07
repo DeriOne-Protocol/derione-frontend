@@ -1,5 +1,7 @@
 import { useReducer } from "react";
 
+const today = new Date().toJSON().slice(0, 10).replace(/-/g, "/");
+
 export function useFormReducer() {
   const [state, dispatch] = useReducer(
     (state, action) => {
@@ -54,7 +56,7 @@ export function useFormReducer() {
     {
       underlyingAsset: "ETH",
       optionType: "Call",
-      expirationDate: "",
+      expirationDate: today,
       strikePrice: 0,
       optionSize: 0
     }
