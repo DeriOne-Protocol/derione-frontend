@@ -57,7 +57,7 @@ function Balance() {
         {balance === null
           ? "Error"
           : balance
-          ? `Ξ${ethers.utils.formatUnits(balance)}`
+          ? `${ethers.utils.formatUnits(balance)}`
           : ""}
       </span>
     </>
