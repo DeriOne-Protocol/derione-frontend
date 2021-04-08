@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import DataTable from "react-data-table-component";
 import { FormContext } from "../contexts/FormContext";
 
 export function Body() {
@@ -6,6 +7,33 @@ export function Body() {
     { underlyingAsset, optionType, expirationDate, strikePrice, optionSize },
     dispatch
   ] = useContext(FormContext);
+
+  const tableData = [
+    {
+      id: 1,
+      expirationDate: expirationDate,
+      strikePrice: strikePrice,
+      optionSize: optionSize
+    }
+  ];
+
+  const columns = [
+    {
+      name: "Strike Price",
+      selector: "strikePrice",
+      sortable: true
+    },
+    {
+      name: "Expiration Date",
+      selector: "expirationDate",
+      sortable: true
+    },
+    {
+      name: "Option Size",
+      selector: "optionSize",
+      sortable: false
+    }
+  ];
 
   return (
     <div>
@@ -98,14 +126,7 @@ export function Body() {
           />
         </div>
       </div>
-      <hr />
-      <div>
-        <p>underlyingAsset: {underlyingAsset}</p>
-        <p>optionType: {optionType}</p>
-        <p>expirationDate: {expirationDate}</p>
-        <p>strikePrice: {strikePrice}</p>
-        <p>optionSize: {optionSize}</p>
-      </div>
+      <DataTable columns={columns} data={tableData} />
     </div>
   );
 }
