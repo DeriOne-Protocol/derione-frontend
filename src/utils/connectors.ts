@@ -2,11 +2,12 @@ import { InjectedConnector } from "@web3-react/injected-connector";
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [1]
+  supportedChainIds: [1, 31337]
 });
 
 const RPC_URLS: { [chainId: number]: string } = {
-  1: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}` as string
+  1: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}` as string,
+  31337: "https://localhost:8545" as string
 };
 const POLLING_INTERVAL = 12000;
 
