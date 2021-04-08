@@ -126,7 +126,7 @@ export function Body() {
           />
         </div>
       </div>
-      <DataTable columns={columns} data={tableData} />
+      <DataTable columns={columns} data={tableData} responsive={true} />
     </div>
   );
 }
