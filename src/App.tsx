@@ -1,9 +1,8 @@
 import { ethers } from "ethers";
 import { Web3ReactProvider } from "@web3-react/core";
 import { Connectors } from "./components/Connectors";
-import { Feed } from "./components/Feed";
 import { Footer } from "./components/Footer";
-import { Forms } from "./components/Forms";
+import { Body } from "./components/Body";
 import { Header } from "./components/Header";
 import { FormContext } from "./contexts/FormContext";
 import { useFormReducer } from "./hooks/useFormReducer";
@@ -21,10 +20,9 @@ export default function App() {
     <>
       <Web3ReactProvider getLibrary={getLibrary}>
         <FormContext.Provider value={[state, dispatch]}>
-          <Header />
-          <Forms />
-          <Feed />
           <Connectors />
+          <Header />
+          <Body />
           <Footer />
         </FormContext.Provider>
       </Web3ReactProvider>
