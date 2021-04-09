@@ -36,18 +36,18 @@ export const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.WalletConnect]: walletconnect
 };
 
-export function getErrorMessage(error: Error) {
-  if (error instanceof NoEthereumProviderError) {
+export function getErrorMessage(_error: Error) {
+  if (_error instanceof NoEthereumProviderError) {
     return "No Ethereum browser extension detected, install MetaMask on desktop or visit from a dApp browser on mobile.";
-  } else if (error instanceof UnsupportedChainIdError) {
+  } else if (_error instanceof UnsupportedChainIdError) {
     return "You're connected to an unsupported network.";
   } else if (
-    error instanceof UserRejectedRequestErrorInjected ||
-    error instanceof UserRejectedRequestErrorWalletConnect
+    _error instanceof UserRejectedRequestErrorInjected ||
+    _error instanceof UserRejectedRequestErrorWalletConnect
   ) {
     return "Please authorize this website to access your Ethereum account.";
   } else {
-    console.error(error);
+    console.error(_error);
     return "An unknown error occurred. Check the console for more details.";
   }
 }

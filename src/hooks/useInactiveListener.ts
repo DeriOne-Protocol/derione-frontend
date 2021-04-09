@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "../utils/connectors";
 
-export function useInactiveListener(suppress: boolean = false) {
+export function useInactiveListener(_suppress: boolean = false) {
   const { active, error, activate } = useWeb3React();
 
   useEffect((): any => {
     const { ethereum } = window as any;
-    if (ethereum && ethereum.on && !active && !error && !suppress) {
+    if (ethereum && ethereum.on && !active && !error && !_suppress) {
       const handleConnect = () => {
         console.log("Handling 'connect' event");
         activate(injected);
@@ -41,5 +41,5 @@ export function useInactiveListener(suppress: boolean = false) {
         }
       };
     }
-  }, [active, error, suppress, activate]);
+  }, [active, error, _suppress, activate]);
 }
