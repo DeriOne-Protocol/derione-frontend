@@ -36,10 +36,16 @@ export function useFormReducer() {
             expirationDate: action.value
           };
         }
-        case "UPDATE_STRIKE_PRICE": {
+        case "UPDATE_MIN_STRIKE_PRICE": {
           return {
             ...state,
-            strikePrice: action.value
+            strikePriceMin: action.value
+          };
+        }
+        case "UPDATE_MAX_STRIKE_PRICE": {
+          return {
+            ...state,
+            strikePriceMax: action.value
           };
         }
         case "UPDATE_OPTION_SIZE": {
@@ -57,7 +63,8 @@ export function useFormReducer() {
       underlyingAsset: "ETH",
       optionType: "Call",
       expirationDate: today,
-      strikePrice: 0,
+      strikePriceMin: 0,
+      strikePriceMax: 1000,
       optionSize: 0
     }
   );

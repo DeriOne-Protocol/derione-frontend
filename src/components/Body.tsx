@@ -12,7 +12,7 @@ export function Body() {
     {
       id: 1,
       expirationDate: expirationDate,
-      strikePrice: strikePrice,
+      strikePrice: strikePriceMin,
       optionSize: optionSize
     }
   ];
@@ -94,22 +94,41 @@ export function Body() {
           />
         </div>
         <div>
-          <label>Strike Price</label>
+          <label>Strike Price Min</label>
           <form>
             <input
               onChange={(event) =>
                 dispatch({
-                  type: "UPDATE_STRIKE_PRICE",
+                  type: "UPDATE_MIN_STRIKE_PRICE",
                   value: event.target.value
                 })
               }
-              value={strikePrice}
+              value={strikePriceMin}
               defaultValue={0}
               min={0}
               max={1000}
               type="range"
             />
-            <output>{strikePrice}</output>
+            <output>{strikePriceMin}</output>
+          </form>
+        </div>
+        <div>
+          <label>Strike Price Max</label>
+          <form>
+            <input
+              onChange={(event) =>
+                dispatch({
+                  type: "UPDATE_MAX_STRIKE_PRICE",
+                  value: event.target.value
+                })
+              }
+              value={strikePriceMax}
+              defaultValue={1000}
+              min={0}
+              max={1000}
+              type="range"
+            />
+            <output>{strikePriceMax}</output>
           </form>
         </div>
         <div>
