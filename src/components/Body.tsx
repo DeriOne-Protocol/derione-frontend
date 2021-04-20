@@ -106,7 +106,7 @@ export function Body() {
               value={strikePriceMin}
               defaultValue={0}
               min={0}
-              max={1000}
+              max={5000}
               type="range"
             />
             <output>{strikePriceMin}</output>
@@ -125,7 +125,7 @@ export function Body() {
               value={strikePriceMax}
               defaultValue={1000}
               min={0}
-              max={1000}
+              max={5000}
               type="range"
             />
             <output>{strikePriceMax}</output>
