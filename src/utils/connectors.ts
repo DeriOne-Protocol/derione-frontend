@@ -14,7 +14,8 @@ export const injected = new InjectedConnector({
 });
 
 const RPC_URLS: { [chainId: number]: string } = {
-  1: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}` as string,
+  // 1: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}` as string,
+  1: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}` as string,
   1337: "https://localhost:8545" as string,
   31337: "https://localhost:8545" as string
 };
