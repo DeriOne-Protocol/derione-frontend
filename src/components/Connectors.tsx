@@ -1,23 +1,23 @@
 import { ethers } from "ethers";
-import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
 import { Spinner } from "./Spinner";
+import { useEagerConnect } from "../hooks/useEagerConnect";
+import { useInactiveListener } from "../hooks/useInactiveListener";
 import {
   ConnectorNames,
   connectorsByName,
   getErrorMessage
 } from "../utils/connectors";
-import { useEagerConnect } from "../hooks/useEagerConnect";
-import { useInactiveListener } from "../hooks/useInactiveListener";
 
 export function Connectors() {
   const context = useWeb3React<ethers.providers.Web3Provider>();
-  const { connector, chainId, activate, deactivate, active, error } = context;
+  const { active, chainId, connector, error, activate, deactivate } = context;
 
   // handle logic to recognize the connector currently being activated
-  const [activatingConnector, setActivatingConnector] = React.useState<any>();
-  React.useEffect(() => {
+  const [activatingConnector, setActivatingConnector] = useState<any>();
+  useEffect(() => {
     if (activatingConnector && activatingConnector === connector) {
       setActivatingConnector(undefined);
     }
