@@ -1,7 +1,7 @@
 import { Web3ReactProvider } from "@web3-react/core";
+import { Body } from "./components/Body";
 import { Connectors } from "./components/Connectors";
 import { Footer } from "./components/Footer";
-import { Body } from "./components/Body";
 import { Header } from "./components/Header";
 import { FormContext } from "./contexts/FormContext";
 import { useFormReducer } from "./hooks/useFormReducer";
@@ -14,8 +14,8 @@ export default function App() {
     <>
       <Web3ReactProvider getLibrary={getLibrary}>
         <FormContext.Provider value={[state, dispatch]}>
-          <Connectors />
           <Header />
+          <Connectors />
           <Body />
           <Footer />
         </FormContext.Provider>

@@ -74,7 +74,7 @@ export function Connectors() {
         )}
 
         {!!error && <h4>{getErrorMessage(error)}</h4>}
-        {chainId === 1337 || chainId === 31337? (
+        {chainId === 1337 || chainId === 31337 ? (
           <h4>you are connected to the local network</h4>
         ) : (
           <p></p>

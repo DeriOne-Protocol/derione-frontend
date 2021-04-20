@@ -36,7 +36,7 @@ export function Body() {
   ];
 
   return (
-    <div>
+    <>
       <div>
         <div>
           <label>Underlying Asset</label>
@@ -146,6 +146,6 @@ export function Body() {
         </div>
       </div>
       <DataTable columns={columns} data={tableData} responsive={true} />
-    </div>
+    </>
   );
 }
