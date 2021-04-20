@@ -1,4 +1,4 @@
-export const deriOneV1AddressDev = "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d";
+export const deriOneV1AddressDev = "0x322813Fd9A801c5507c9de605d63CEA4f2CE6c44";
 export const deriOneV1AbiDev = [
   {
     inputs: [
@@ -31,6 +31,11 @@ export const deriOneV1AbiDev = [
         internalType: "uint256",
         name: "_strikesRange",
         type: "uint256"
+      },
+      {
+        internalType: "address[]",
+        name: "_minterAmmAddressList",
+        type: "address[]"
       }
     ],
     stateMutability: "nonpayable",
@@ -56,13 +61,157 @@ export const deriOneV1AbiDev = [
     type: "event"
   },
   {
-    inputs: [],
-    name: "WBTC_TOKEN",
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_size",
+        type: "uint256"
+      }
+    ],
+    name: "_calculatePremiumSirenV1",
     outputs: [
       {
-        internalType: "address",
+        internalType: "uint256",
         name: "",
-        type: "address"
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "enum DataTypes.Asset",
+        name: "_underlyingAsset",
+        type: "uint8"
+      },
+      {
+        internalType: "enum DataTypes.OptionType",
+        name: "_optionType",
+        type: "uint8"
+      },
+      {
+        internalType: "uint256",
+        name: "_expiryTimestamp",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_strikeUSD",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_size",
+        type: "uint256"
+      }
+    ],
+    name: "_getMatchedCountFromExactValues",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "enum DataTypes.Asset",
+        name: "_underlyingAsset",
+        type: "uint8"
+      },
+      {
+        internalType: "enum DataTypes.OptionType",
+        name: "_optionType",
+        type: "uint8"
+      },
+      {
+        internalType: "uint256",
+        name: "_expiryTimestamp",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_minStrikeUSD",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_maxStrikeUSD",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_size",
+        type: "uint256"
+      }
+    ],
+    name: "_getMatchedCountFromRangeValuesSirenV1",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "_getOptionListSirenV1",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "enum DataTypes.Protocol",
+            name: "protocol",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.Asset",
+            name: "underlyingAsset",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.Asset",
+            name: "paymentAsset",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.OptionType",
+            name: "optionType",
+            type: "uint8"
+          },
+          {
+            internalType: "uint256",
+            name: "expiryTimestamp",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "strikeUSD",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "size",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "premium",
+            type: "uint256"
+          }
+        ],
+        internalType: "struct DataTypes.Option[]",
+        name: "",
+        type: "tuple[]"
       }
     ],
     stateMutability: "view",
@@ -282,6 +431,87 @@ export const deriOneV1AbiDev = [
         type: "uint256"
       }
     ],
+    name: "getOptionFromExactValuesSirenV1",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "enum DataTypes.Protocol",
+            name: "protocol",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.Asset",
+            name: "underlyingAsset",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.Asset",
+            name: "paymentAsset",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.OptionType",
+            name: "optionType",
+            type: "uint8"
+          },
+          {
+            internalType: "uint256",
+            name: "expiryTimestamp",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "strikeUSD",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "size",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "premium",
+            type: "uint256"
+          }
+        ],
+        internalType: "struct DataTypes.Option",
+        name: "",
+        type: "tuple"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "enum DataTypes.Asset",
+        name: "_underlyingAsset",
+        type: "uint8"
+      },
+      {
+        internalType: "enum DataTypes.OptionType",
+        name: "_optionType",
+        type: "uint8"
+      },
+      {
+        internalType: "uint256",
+        name: "_expiryTimestamp",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_strikeUSD",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_size",
+        type: "uint256"
+      }
+    ],
     name: "getOptionListFromExactValues",
     outputs: [
       {
@@ -419,6 +649,105 @@ export const deriOneV1AbiDev = [
       }
     ],
     stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "enum DataTypes.Asset",
+        name: "_underlyingAsset",
+        type: "uint8"
+      },
+      {
+        internalType: "enum DataTypes.OptionType",
+        name: "_optionType",
+        type: "uint8"
+      },
+      {
+        internalType: "uint256",
+        name: "_expiryTimestamp",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_minStrikeUSD",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_maxStrikeUSD",
+        type: "uint256"
+      },
+      {
+        internalType: "uint256",
+        name: "_size",
+        type: "uint256"
+      }
+    ],
+    name: "getOptionListFromRangeValuesSirenV1",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "enum DataTypes.Protocol",
+            name: "protocol",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.Asset",
+            name: "underlyingAsset",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.Asset",
+            name: "paymentAsset",
+            type: "uint8"
+          },
+          {
+            internalType: "enum DataTypes.OptionType",
+            name: "optionType",
+            type: "uint8"
+          },
+          {
+            internalType: "uint256",
+            name: "expiryTimestamp",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "strikeUSD",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "size",
+            type: "uint256"
+          },
+          {
+            internalType: "uint256",
+            name: "premium",
+            type: "uint256"
+          }
+        ],
+        internalType: "struct DataTypes.Option[]",
+        name: "",
+        type: "tuple[]"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "_minterAmmAddressList",
+        type: "address[]"
+      }
+    ],
+    name: "init",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function"
   },
   {
