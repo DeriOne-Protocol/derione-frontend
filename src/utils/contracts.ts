@@ -8,11 +8,7 @@ import {
   deriOneV1AbiProd
 } from "../contracts/DeriOneV1ContractProd";
 
-export function getDeriOneV1ContractInstance(
-  _provider: any,
-  _chainId: number
-): any {
-  const library = new ethers.providers.Web3Provider(_provider);
+export function getDeriOneV1ContractInstance(library, _chainId: number): any {
   const signer = library.getSigner(0);
   if (_chainId === 1) {
     return new ethers.Contract(deriOneV1AddressProd, deriOneV1AbiProd, signer);
