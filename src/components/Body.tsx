@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import DataTable from "react-data-table-component";
 import { FormContext } from "../contexts/FormContext";
+export default function Body() {
 
-export function Body() {
   const [
     { underlyingAsset, optionType, expirationDate, strikePrice, optionSize },
     dispatch

@@ -2,7 +2,7 @@ import { Web3Provider } from "@ethersproject/providers";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
-import { Spinner } from "./Spinner";
+import Spinner from "./Spinner";
 import { useEagerConnect } from "../hooks/useEagerConnect";
 import { useInactiveListener } from "../hooks/useInactiveListener";
 import {
@@ -11,7 +11,7 @@ import {
   getErrorMessage
 } from "../utils/connectors";
 
-export function Connectors() {
+export default function Connectors() {
   const context = useWeb3React<Web3Provider>();
   const { active, chainId, connector, error, activate, deactivate } = context;
 

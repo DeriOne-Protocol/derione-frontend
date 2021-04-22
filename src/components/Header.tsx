@@ -3,6 +3,18 @@ import React from "react";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
 
+export default function Header() {
+  return (
+    <>
+      <HeaderWrapper>
+        <Account />
+        <Balance />
+        <Network />
+      </HeaderWrapper>
+    </>
+  );
+}
+
 function Account() {
   const { account } = useWeb3React();
 
@@ -68,18 +80,6 @@ function Network() {
     <>
       <span>{chainId === 1 ? "Mainnet" : "Testnet"}</span>
       <span>{active ? "🟢" : error ? "🔴" : "🟠"}</span>
-    </>
-  );
-}
-
-export function Header() {
-  return (
-    <>
-      <HeaderWrapper>
-        <Account />
-        <Balance />
-        <Network />
-      </HeaderWrapper>
     </>
   );
 }

@@ -1,8 +1,8 @@
 import { Web3ReactProvider } from "@web3-react/core";
-import { Body } from "./components/Body";
-import { Connectors } from "./components/Connectors";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import Body from "./components/Body";
+import Connectors from "./components/Connectors";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { FormContext } from "./contexts/FormContext";
 import { useFormReducer } from "./hooks/useFormReducer";
 import { getLibrary } from "./utils/providers";
