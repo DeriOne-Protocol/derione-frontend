@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { Contract } from "@ethersproject/contracts";
 import {
   deriOneV1AddressDev,
   deriOneV1AbiDev
@@ -11,8 +11,8 @@ import {
 export function getDeriOneV1ContractInstance(library, _chainId: number): any {
   const signer = library.getSigner(0);
   if (_chainId === 1) {
-    return new ethers.Contract(deriOneV1AddressProd, deriOneV1AbiProd, signer);
+    return new Contract(deriOneV1AddressProd, deriOneV1AbiProd, library);
   } else if (_chainId === 1337 || _chainId === 31337) {
-    return new ethers.Contract(deriOneV1AddressDev, deriOneV1AbiDev, signer);
+    return new Contract(deriOneV1AddressDev, deriOneV1AbiDev, library);
   }
 }

@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { formatUnits } from "@ethersproject/units";
 import React from "react";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
@@ -54,11 +54,7 @@ function Balance() {
     <>
       <span>Balance:</span>
       <span>
-        {balance === null
-          ? "Error"
-          : balance
-          ? `${ethers.utils.formatUnits(balance)}`
-          : ""}
+        {balance === null ? "Error" : balance ? `${formatUnits(balance)}` : ""}
       </span>
     </>
   );

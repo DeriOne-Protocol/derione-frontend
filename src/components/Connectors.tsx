@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { Web3Provider } from "@ethersproject/providers";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
@@ -12,7 +12,7 @@ import {
 } from "../utils/connectors";
 
 export function Connectors() {
-  const context = useWeb3React<ethers.providers.Web3Provider>();
+  const context = useWeb3React<Web3Provider>();
   const { active, chainId, connector, error, activate, deactivate } = context;
 
   // handle logic to recognize the connector currently being activated
