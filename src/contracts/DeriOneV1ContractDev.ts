@@ -1,4 +1,5 @@
-export const deriOneV1AddressDev = "0x322813Fd9A801c5507c9de605d63CEA4f2CE6c44";
+
+export const deriOneV1AddressDev = "0x4A679253410272dd5232B3Ff7cF5dbB88f295319";
 export const deriOneV1AbiDev = [
   {
     inputs: [
@@ -61,6 +62,32 @@ export const deriOneV1AbiDev = [
     type: "event"
   },
   {
+    inputs: [],
+    name: "MarketSirenV1",
+    outputs: [
+      {
+        internalType: "contract IMarketSirenV1",
+        name: "",
+        type: "address"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [],
+    name: "MinterAmmSirenV1",
+    outputs: [
+      {
+        internalType: "contract IMinterAmmSirenV1",
+        name: "",
+        type: "address"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
     inputs: [
       {
         internalType: "uint256",
@@ -77,6 +104,19 @@ export const deriOneV1AbiDev = [
       }
     ],
     stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "contract IMinterAmmSirenV1[]",
+        name: "_minterAmmInstanceList",
+        type: "address[]"
+      }
+    ],
+    name: "_getMarketAddressList",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function"
   },
   {
@@ -215,6 +255,32 @@ export const deriOneV1AbiDev = [
       }
     ],
     stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "_marketAddressList",
+        type: "address[]"
+      }
+    ],
+    name: "_instantiateMarket",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "_minterAmmAddressList",
+        type: "address[]"
+      }
+    ],
+    name: "_instantiateMinterAmm",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function"
   },
   {
@@ -797,6 +863,63 @@ export const deriOneV1AbiDev = [
     name: "instantiatePoolContracts",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    name: "marketAddressList",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    name: "marketInstanceList",
+    outputs: [
+      {
+        internalType: "contract IMarketSirenV1",
+        name: "",
+        type: "address"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    name: "minterAmmInstanceList",
+    outputs: [
+      {
+        internalType: "contract IMinterAmmSirenV1",
+        name: "",
+        type: "address"
+      }
+    ],
+    stateMutability: "view",
     type: "function"
   },
   {
