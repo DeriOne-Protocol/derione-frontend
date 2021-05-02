@@ -1,5 +1,5 @@
 
-export const deriOneV1AddressDev = "0x4A679253410272dd5232B3Ff7cF5dbB88f295319";
+export const deriOneV1AddressDev = "0x09635F643e140090A9A8Dcd712eD6285858ceBef";
 export const deriOneV1AbiDev = [
   {
     inputs: [
